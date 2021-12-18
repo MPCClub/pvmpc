@@ -17,9 +17,28 @@
             }
         }
 
-        return check;
+        var radioElement = $('.input-radio');
+        var checkRadio = false;
+        for(let i = 0; i <  radioElement.length;i++){
+            if(radioElement[i].checked){
+                console.log(radioElement[i].checked);
+                checkRadio = i;
+                break;
+            }
+        }
+        if( checkRadio !== 0 && checkRadio == false){
+            console.log(checkRadio)
+            showValidate(radioElement);
+            check = false;
+        }
+        return check ;
     });
 
+    $('.input-radio').each(function(){
+        $(this).focus(function(){
+            hideValidate(this);
+        })
+    });
 
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){
